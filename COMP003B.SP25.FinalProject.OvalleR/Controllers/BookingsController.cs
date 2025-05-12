@@ -22,7 +22,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var detailDB = _context.bookings.Include(b => b.Car).Include(b => b.Service);
+            var detailDB = _context.Bookings.Include(b => b.Car).Include(b => b.Service);
             return View(await detailDB.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
                 return NotFound();
             }
 
-            var booking = await _context.bookings
+            var booking = await _context.Bookings
                 .Include(b => b.Car)
                 .Include(b => b.Service)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -80,7 +80,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
                 return NotFound();
             }
 
-            var booking = await _context.bookings.FindAsync(id);
+            var booking = await _context.Bookings.FindAsync(id);
             if (booking == null)
             {
                 return NotFound();
@@ -135,7 +135,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
                 return NotFound();
             }
 
-            var booking = await _context.bookings
+            var booking = await _context.Bookings
                 .Include(b => b.Car)
                 .Include(b => b.Service)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -152,10 +152,10 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var booking = await _context.bookings.FindAsync(id);
+            var booking = await _context.Bookings.FindAsync(id);
             if (booking != null)
             {
-                _context.bookings.Remove(booking);
+                _context.Bookings.Remove(booking);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
 
         private bool BookingExists(int id)
         {
-            return _context.bookings.Any(e => e.Id == id);
+            return _context.Bookings.Any(e => e.Id == id);
         }
     }
 }
