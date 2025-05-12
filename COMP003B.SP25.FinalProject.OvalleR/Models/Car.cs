@@ -14,5 +14,6 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Models
         public string Email { get; set; }
 
         public virtual ICollection<Booking>? Bookings { get; set; }
+   
     }
 }
