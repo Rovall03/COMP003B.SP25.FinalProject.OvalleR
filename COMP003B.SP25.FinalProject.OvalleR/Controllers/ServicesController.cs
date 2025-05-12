@@ -40,6 +40,14 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
                 return NotFound();
             }
 
+            ViewBag.Cars = from s in _context.Cars
+                           join e in _context.Bookings on s.CarId equals e.CarId
+                           join c in _context.Services on e.ServiceId equals c.ServiceId
+                           where c.ServiceId == id
+                           select s;
+                           
+
+
             return View(service);
         }
 

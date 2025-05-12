@@ -12,6 +12,6 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Data
 
         public DbSet<Car> Cars { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<Booking> bookings { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
     }
 }
