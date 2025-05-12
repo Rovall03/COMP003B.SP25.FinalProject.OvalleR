@@ -19,6 +19,19 @@
         </dd>
     </dl>
 </div>
+
+<div class="col-md-4">
+    <h4>
+        <ul>
+            @foreach (Car car in ViewBag.Cars)
+            { 
+            <li>@car.OwnerName</li>
+            }
+        </ul>
+    </h4>
+
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ServiceId">Edit</a> |
     <a asp-action="Index">Back to List</a>
