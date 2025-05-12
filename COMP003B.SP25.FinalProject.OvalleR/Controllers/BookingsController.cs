@@ -49,7 +49,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
-            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "Email");
+            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "OwnerName");
             ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "ServiceType");
             return View();
         }
@@ -85,7 +85,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
             {
                 return NotFound();
             }
-            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "Email", booking.CarId);
+            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "ModelCar", booking.CarId);
             ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "ServiceType", booking.ServiceId);
             return View(booking);
         }
@@ -122,7 +122,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "Email", booking.CarId);
+            ViewData["CarId"] = new SelectList(_context.Cars, "CarId", "ModelCar", booking.CarId);
             ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "ServiceType", booking.ServiceId);
             return View(booking);
         }

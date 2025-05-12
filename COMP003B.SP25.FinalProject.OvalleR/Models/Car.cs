@@ -6,6 +6,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR.Models
     public class Car
     {
        public int CarId { get; set; }
+
         public string OwnerName { get; set; }
         public string ModelCar { get; set; }
 
