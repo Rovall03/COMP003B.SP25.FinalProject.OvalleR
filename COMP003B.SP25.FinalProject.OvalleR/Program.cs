@@ -1,5 +1,7 @@
 using COMP003B.SP25.FinalProject.OvalleR.Data;
+using COMP003B.SP25.FinalProject.OvalleR.Middleware;
 using Microsoft.EntityFrameworkCore;
+using COMP003B.SP25.FinalProject.OvalleR.Middleware;
 namespace COMP003B.SP25.FinalProject.OvalleR
 {
     public class Program
@@ -26,7 +28,7 @@ namespace COMP003B.SP25.FinalProject.OvalleR
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseMiddleware<RequestTrackerMiddleware>();
             app.UseRouting();
 
             app.UseAuthorization();
